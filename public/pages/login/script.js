@@ -20,7 +20,7 @@
                 
                 if (response.ok) {
                     localStorage.setItem('token', JSON.stringify(data.token));
-                    
+                    localStorage.setItem('user', JSON.stringify(data.user));
 
                     alert('Login realizado com sucesso!');
                     window.location.href = '../dashboard/dashboard.html'; 
