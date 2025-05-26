@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hopi Hari</title>
+    <link rel="stylesheet" href="area3.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="_02042025143029439_Logotipo_HopiHNovo-removebg-preview.png" alt="Logo Hopi Hari">
+                </div>
+                <div class="user-menu">
+                    <div class="user-info">
+                        <div class="user-name" id="user-name">Bem-vindo(a)</div>
+                        <div class="user-email" id="user-email"></div>
+                    </div>
+                    <form action="dashboard.html">
+                        <button class="logout-btn" >Voltar</button>
+                    </form>
+                    
+
+                </div>
+            </div>
+        </div>
+    </header>
+    
+   
+
+    <div class="container">
+        <div class="rides-grid">
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://s3.wasabisys.com/hapfun/2018/10/torre.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">La Tour Eiffel</h3>
+                    <div class="ride-time">35 min</div>
+                    <span class="ride-status status-busy">Muito Movimentado</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://blog.hopihari.com.br/wp-content/uploads/2024/03/Capa-Hopi-Night-2024-Cinetika-%E2%80%93-Descubra-a-energia-noturna-das-ruaspsd.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Cine Hopi Hari</h3>
+                    <div class="ride-time">15 min</div>
+                    <span class="ride-status status-open">Normal</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://live.staticflickr.com/8310/7963319382_ca7802b364_b.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Theatro di Kaminda</h3>
+                    <div class="ride-time">20 min</div>
+                    <span class="ride-status status-open">Normal</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/08/Giranda_Mundi_do_parque_Hopi_Hari.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Giranda Mundi</h3>
+                    <div class="ride-time">25 min</div>
+                    <span class="ride-status status-busy">Movimentado</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://kanto.legiaodosherois.com.br/w760-h398-gnw-cfill-q95/wp-content/uploads/2012/12/get1.jpg.webp')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Palácio da justiça</h3>
+                    <div class="ride-time">40 min</div>
+                    <span class="ride-status status-busy">Muito Movimentado</span>
+                </div>
+            </div>
+
+          
+        <p class="last-update">Última atualização: 25/04/2025 15:42</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Parque HOPIhARI - Sistema de Gerenciamento de Filas
+    </div>
+
+    <script>
+        // Código para atualização em tempo real
+        function atualizarTemposEspera() {
+            // Em uma implementação real, aqui faria uma chamada AJAX para o servidor
+            // para obter os dados atualizados das filas
+            
+            // Simulação de atualização para demonstração
+            const agora = new Date();
+            document.querySelector('.last-update').textContent = 
+                `Última atualização: ${agora.toLocaleDateString()} ${agora.toLocaleTimeString()}`;
+        }
+
+        // Atualizar a cada 30 segundos
+        setInterval(atualizarTemposEspera, 30000);
+    </script>
+    
+    
+
+    <script>
+        // Verificar se há um usuário logado
+        document.addEventListener('DOMContentLoaded', function() {
+            const userData = JSON.parse(localStorage.getItem('user')) || {};
+            
+            if (userData.firstName) {
+                document.getElementById('user-name').textContent = `Olá, ${userData.firstName}!`;
+                document.getElementById('user-email').textContent = userData.email;
+            } else {
+                // Redirecionar para a página de login se não houver usuário
+                window.location.href = '/';
+            }
+            
+            // Botão de logout
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                localStorage.removeItem('user');
+                window.location.href = '/';
+            });
+            
+            // Toggle do menu lateral (para mobile)
+            document.getElementById('menu-toggle').addEventListener('click', function() {
+                document.getElementById('sidebar').classList.toggle('active');
+            });
+            
+            // Fechar menu ao clicar em um item (para mobile)
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) {
+                        document.getElementById('sidebar').classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

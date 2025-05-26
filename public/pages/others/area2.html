@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hopi Hari</title>
+    <link rel="stylesheet" href="area2.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="_02042025143029439_Logotipo_HopiHNovo-removebg-preview.png" alt="Logo Hopi Hari">
+                </div>
+                <div class="user-menu">
+                    <div class="user-info">
+                        <div class="user-name" id="user-name">Bem-vindo(a)</div>
+                        <div class="user-email" id="user-email"></div>
+                    </div>
+                    <form action="dashboard.html">
+                        <button class="logout-btn" >Voltar</button>
+                    </form>
+                    
+
+                </div>
+            </div>
+        </div>
+    </header>
+    
+   
+
+    <div class="container">
+        <div class="rides-grid">
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://blog.hopihari.com.br/wp-content/uploads/2023/02/Katapul-Capa.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Katapul</h3>
+                    <div class="ride-time">35 min</div>
+                    <span class="ride-status status-busy">Muito Movimentado</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://i0.statig.com.br/bancodeimagens/34/1z/zv/341zzvh7llitxuk7fa07fr215.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Hadikali</h3>
+                    <div class="ride-time">25 min</div>
+                    <span class="ride-status status-open">Normal</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/de/Parangol%C3%A9.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Parangolé</h3>
+                    <div class="ride-time">20 min</div>
+                    <span class="ride-status status-open">Normal</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://parkstudios.com.br/wp-content/uploads/elementor/thumbs/AribaBobbi02-qnfbx6kia9o4j4ln255o61kdjw3yd92nb3rvyydj74.webp')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Aribabobbi</h3>
+                    <div class="ride-time">25 min</div>
+                    <span class="ride-status status-busy">Movimentado</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://www.melhoresdestinos.com.br/wp-content/uploads/2022/11/jambalaia-hopi-hari.jpeg ')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Jambalaia</h3>
+                    <div class="ride-time">40 min</div>
+                    <span class="ride-status status-busy">Muito Movimentado</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://live.staticflickr.com/3496/3225688158_bc72c998b8_b.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Vambatê</h3>
+                    <div class="ride-time">10 min</div>
+                    <span class="ride-status status-open">Normal</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://i0.statig.com.br/hopihari/img/Cinemotion_%28640_x_267px%29.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Cinemotion</h3>
+                    <div class="ride-time">0 min</div>
+                    <span class="ride-status status-maintenance">Em Manutenção</span>
+                </div>
+            </div>
+
+            <div class="ride-card">
+                <div class="ride-image" style="background-image: url('https://blog.hopihari.com.br/wp-content/uploads/2024/03/speedi64-6.jpg')"></div>
+                <div class="ride-info">
+                    <h3 class="ride-name">Speedi '64</h3>
+                    <div class="ride-time">30 min</div>
+                    <span class="ride-status status-busy">Movimentado</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="last-update">Última atualização: 25/04/2025 15:42</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Parque HOPIhARI - Sistema de Gerenciamento de Filas
+    </div>
+
+    <script>
+        // Código para atualização em tempo real
+        function atualizarTemposEspera() {
+            // Em uma implementação real, aqui faria uma chamada AJAX para o servidor
+            // para obter os dados atualizados das filas
+            
+            // Simulação de atualização para demonstração
+            const agora = new Date();
+            document.querySelector('.last-update').textContent = 
+                `Última atualização: ${agora.toLocaleDateString()} ${agora.toLocaleTimeString()}`;
+        }
+
+        // Atualizar a cada 30 segundos
+        setInterval(atualizarTemposEspera, 30000);
+    </script>
+    
+    
+
+    <script>
+        // Verificar se há um usuário logado
+        document.addEventListener('DOMContentLoaded', function() {
+            const userData = JSON.parse(localStorage.getItem('user')) || {};
+            
+            if (userData.firstName) {
+                document.getElementById('user-name').textContent = `Olá, ${userData.firstName}!`;
+                document.getElementById('user-email').textContent = userData.email;
+            } else {
+                // Redirecionar para a página de login se não houver usuário
+                window.location.href = '/';
+            }
+            
+            // Botão de logout
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                localStorage.removeItem('user');
+                window.location.href = '/';
+            });
+            
+            // Toggle do menu lateral (para mobile)
+            document.getElementById('menu-toggle').addEventListener('click', function() {
+                document.getElementById('sidebar').classList.toggle('active');
+            });
+            
+            // Fechar menu ao clicar em um item (para mobile)
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 992) {
+                        document.getElementById('sidebar').classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
