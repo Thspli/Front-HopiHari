@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editar Perfil</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="https://www.sinetrosv.org.br/wp-content/uploads//2017/08/Hopi-Hari.png" alt="Logo Hopi Hari" />
+        </div>
+        <div class="user-menu">
+          <form action="dashboard.html">
+            <button class="logout-btn" id="logout-btn">Voltar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="profile-section">
+    <div class="container">
+      <h2>Editar Perfil</h2>
+      <form class="edit-profile-form">
+        <div class="form-group">
+          <label for="name">Nome:</label>
+          <input type="text" id="name" name="name" value="João da Silva" required />
+        </div>
+
+                <div class="form-group">
+          <label for="surname">Sobrenome:</label>
+          <input type="text" id="surname" name="surname" value="Silva" required />
+        </div>
+
+
+        <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" value="joao@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="birthdate">Data de nascimento:</label>
+          <input type="date" id="birthdate" name="birthdate" value="2001-03-12" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telefone:</label>
+          <input type="tel" id="phone" name="phone" value="(11) 91234-5678" required />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="save-btn">Salvar Alterações</button>
+
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
