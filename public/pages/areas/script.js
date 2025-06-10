@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         grid.innerHTML = grid.innerHTML +
          `
             <div class="ride-card">
-                <div class="ride-image" style="background-image: url('../../imagem/${brinquedo.image}')"></div>
+                <div class="ride-image" style="background-image: url('../imagem/${brinquedo.image}')"></div>
                 <div class="ride-info">
                     <h3 class="ride-name">${brinquedo.name}</h3>
                     <div class="ride-time">${brinquedo.waiting_time}</div>
